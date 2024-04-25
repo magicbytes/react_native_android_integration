@@ -1,26 +1,16 @@
-import React from 'react';
-import {AppRegistry, StyleSheet, Text, View} from 'react-native';
+import React from "react"
+import { ScrollView } from "react-native"
 
-const HelloWorld = () => {
-  return (
-    <View style={styles.container}>
-      <Text style={styles.hello}>Hello, World</Text>
-    </View>
-  );
-};
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-  },
-  hello: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-});
+import TutorialCarousel from "./components/TutorialCarousel/tutorialCarousel"
 
-AppRegistry.registerComponent(
-  'MyReactNativeApp',
-  () => HelloWorld,
-);
+const CCMScreen = (): React.ReactElement => {
+    return (
+        <ScrollView>
+            <TutorialCarousel carouselType="online" title="online" />
+            <TutorialCarousel carouselType="offline" title="offline" />
+            <TutorialCarousel carouselType="alo" title="alo" />
+            <TutorialCarousel carouselType="ebon" title="ebon" />
+        </ScrollView>
+    )
+}
+export default CCMScreen
