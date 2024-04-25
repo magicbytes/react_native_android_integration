@@ -13,6 +13,7 @@ import com.facebook.soloader.SoLoader
 class MyReactActivity : Activity(), DefaultHardwareBackBtnHandler {
     private lateinit var reactRootView: ReactRootView
     private lateinit var reactInstanceManager: ReactInstanceManager
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         SoLoader.init(this, false)
@@ -32,11 +33,27 @@ class MyReactActivity : Activity(), DefaultHardwareBackBtnHandler {
             .build()
         // The string here (e.g. "MyReactNativeApp") has to match
         // the string in AppRegistry.registerComponent() in index.js
-        reactRootView?.startReactApplication(reactInstanceManager, "MyReactNativeApp", null)
+        reactRootView.startReactApplication(reactInstanceManager, "MyReactNativeApp", null)
         setContentView(reactRootView)
     }
 
     override fun invokeDefaultOnBackPressed() {
         super.onBackPressed()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        reactInstanceManager.onHostPause(this)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        reactInstanceManager.onHostResume(this, this)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        reactInstanceManager.onHostDestroy(this)
+        reactRootView.unmountReactApplication()
     }
 }

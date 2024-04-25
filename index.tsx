@@ -15,7 +15,17 @@ const CCMScreen = (): React.ReactElement => {
 }
 export default CCMScreen
 
+const TestSingComponent = (): React.ReactElement => {
+return (
+<TutorialCarousel carouselType="ebon" title="ebon" />
+)
+}
+
+export default TestSingComponent
+
 AppRegistry.registerComponent(
   'MyReactNativeApp',
   () => CCMScreen,
 );
+
+AppRegistry.registerComponent('TestSingComponent', () => TestSingComponent);

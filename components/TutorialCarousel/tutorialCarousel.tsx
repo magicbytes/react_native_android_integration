@@ -40,9 +40,6 @@ const Card = ({ title, subtitle, iconName, mainColor }: CardData & { mainColor: 
 
     return (
         <View style={styles.card}>
-            <View style={[styles.circle, { backgroundColor: mainColor }]}>
-                {IconComponent && <IconComponent fill={mainColor} />}
-            </View>
             <Text style={[styles.cardTitle, { color: mainColor }]}>{title.toUpperCase()}</Text>
             <Text style={styles.cardSubtitle}>{subtitle}</Text>
         </View>
