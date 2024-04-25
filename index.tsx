@@ -1,5 +1,5 @@
 import React from "react"
-import { ScrollView } from "react-native"
+import { AppRegistry, ScrollView } from "react-native"
 
 import TutorialCarousel from "./components/TutorialCarousel/tutorialCarousel"
 
@@ -14,3 +14,8 @@ const CCMScreen = (): React.ReactElement => {
     )
 }
 export default CCMScreen
+
+AppRegistry.registerComponent(
+  'MyReactNativeApp',
+  () => CCMScreen,
+);

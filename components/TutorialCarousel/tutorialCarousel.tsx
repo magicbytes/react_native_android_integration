@@ -1,19 +1,19 @@
 import React from "react"
 import { View, Text, StyleSheet, FlatList } from "react-native"
 
-import BagCheck from "@assets/icons/partner/bag-check.svg"
-import BagCheckCb from "@assets/icons/partner/bag-check-cb.svg"
-import BagCheckTicket from "@assets/icons/partner/bag-check-ticket.svg"
-import Bank from "@assets/icons/partner/bank.svg"
-import Camera from "@assets/icons/partner/camera.svg"
-import Check from "@assets/icons/partner/check.svg"
-import Discount from "@assets/icons/partner/discount.svg"
-import Ebuycard from "@assets/icons/partner/ebuycard.svg"
-import GiftCard from "@assets/icons/partner/gift-card.svg"
-import PurseEuro from "@assets/icons/partner/purse-euro.svg"
-import Note from "@assets/icons/partner/note.svg"
+import BagCheck from "./icons/bag-check.svg"
+import BagCheckCb from "./icons/bag-check-cb.svg"
+import BagCheckTicket from "./icons/bag-check-ticket.svg"
+import Bank from "./icons/bank.svg"
+import Camera from "./icons/camera.svg"
+import Check from "./icons/check.svg"
+import Discount from "./icons/discount.svg"
+import Ebuycard from "./icons/ebuycard.svg"
+import GiftCard from "./icons/gift-card.svg"
+import PurseEuro from "./icons/purse-euro.svg"
+import Note from "./icons/note.svg"
 
-import { carouselCards, CardData } from "@components/TutorialCarousel/data"
+import { carouselCards, CardData } from "./data"
 
 const ICONS = {
     BagCheck,
