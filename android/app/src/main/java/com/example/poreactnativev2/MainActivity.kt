@@ -2,7 +2,6 @@ package com.example.poreactnativev2
 
 import android.content.Intent
 import android.net.Uri
-import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
 import androidx.activity.ComponentActivity
@@ -10,7 +9,6 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -20,15 +18,30 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.viewinterop.AndroidView
 import com.example.poreactnativev2.ui.theme.POReactNativeV2Theme
-import com.facebook.react.PackageList
+import com.facebook.react.ReactActivity
+import com.facebook.react.ReactActivityDelegate
 import com.facebook.react.ReactInstanceManager
-import com.facebook.react.ReactPackage
 import com.facebook.react.ReactRootView
-import com.facebook.react.common.LifecycleState
+import com.facebook.react.defaults.DefaultNewArchitectureEntryPoint.fabricEnabled
+import com.facebook.react.defaults.DefaultReactActivityDelegate
+import com.swmansion.gesturehandler.react.RNGestureHandlerEnabledRootView
 
-class MainActivity : ComponentActivity() {
+
+class MainActivity : ReactActivity() {
+
+    /**
+     * Returns the name of the main component registered from JavaScript. This is used to schedule
+     * rendering of the component.
+     */
+    override fun getMainComponentName(): String = "PocV2"
+
+    /**
+     * Returns the instance of the [ReactActivityDelegate]. We use [DefaultReactActivityDelegate]
+     * which allows you to enable New Architecture with a single boolean flags [fabricEnabled]
+     */
+    override fun createReactActivityDelegate(): ReactActivityDelegate =
+        DefaultReactActivityDelegate(this, mainComponentName, fabricEnabled)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -57,13 +70,7 @@ class MainActivity : ComponentActivity() {
                         Button(onClick = {
                             context.startActivity(Intent(context, MyReactActivity::class.java))
                         }) {
-                            Text(text = "Start full screen view")
-                        }
-
-                        Button(onClick = {
-                            context.startActivity(Intent(context, ThirdActivity::class.java))
-                        }) {
-                            Text(text = "Start partial View")
+                            Text(text = "Start login flow")
                         }
                     }
                 }

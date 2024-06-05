@@ -11,6 +11,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.poreactnativev2"
+        minSdkVersion 24
         minSdk 24
         targetSdk 34
         versionCode 1

@@ -1,31 +1,9 @@
-import React from "react"
-import { AppRegistry, ScrollView } from "react-native"
+/**
+ * @format
+ */
 
-import TutorialCarousel from "./components/TutorialCarousel/tutorialCarousel"
+import {AppRegistry} from 'react-native';
+import App from './App';
+import {name as appName} from './app.json';
 
-const CCMScreen = (): React.ReactElement => {
-    return (
-        <ScrollView>
-            <TutorialCarousel carouselType="online" title="online" />
-            <TutorialCarousel carouselType="offline" title="offline" />
-            <TutorialCarousel carouselType="alo" title="alo" />
-            <TutorialCarousel carouselType="ebon" title="ebon" />
-        </ScrollView>
-    )
-}
-export default CCMScreen
-
-const TestSingComponent = (): React.ReactElement => {
-return (
-<TutorialCarousel carouselType="ebon" title="ebon" />
-)
-}
-
-export default TestSingComponent
-
-AppRegistry.registerComponent(
-  'MyReactNativeApp',
-  () => CCMScreen,
-);
-
-AppRegistry.registerComponent('TestSingComponent', () => TestSingComponent);
+AppRegistry.registerComponent("PocV2", () => App);
